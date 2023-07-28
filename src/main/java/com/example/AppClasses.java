@@ -5,10 +5,8 @@ public class AppClasses {
         System.out.println(" Criando uma Classe - Inicio ");
 
         Cliente cliente = new Cliente();
-
-        System.out.println(cliente);
-
-        
+        //System.out.println(cliente);
+      
         System.out.println("-------------");
 
         cliente.setRenda(-10000);
@@ -22,10 +20,12 @@ public class AppClasses {
 
         System.out.println("-------------");
 
-        Cliente cliente2 = new Cliente();
-        cliente2.setRenda(2000);
-        cliente2.setSexo('s');
-        cliente2.setAnoNascimento(1970);
+//        Cliente cliente2 = new Cliente();
+//        cliente2.setRenda(2000);
+//        cliente2.setSexo('s');
+//        cliente2.setAnoNascimento(1970);
+        Cliente cliente2 = new Cliente(-2000, 'F');
+        cliente2.setAnoNascimento(1960);
 
         System.out.println("Renda: " + cliente2.getRenda());
         System.out.println("Sexo : " + cliente2.getSexo());

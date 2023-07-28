@@ -10,14 +10,30 @@ public class Cliente{
     private double renda; 
     private char sexo;
     private int anoNascimento;
-    private boolean especial = false; 
+    private boolean especial; //  = false;  por feault todo boolean é false 
+
+    // public void Cliente() -->> definido desta forma não é um construtor não pode ter void ("retorno")
 
     public Cliente(){
         // exemplo de como definir atributos pelo construtor 
-        System.out.println("Criando um Objeto CLiente");
+        System.out.println("Criando um Objeto CLiente usando o construtor sem parâmetros");
         double aleatorio = Math.random();
         if (aleatorio > 0.5)
             especial = true;
+    }
+
+    public Cliente(double renda, char sexo ){
+        this(); // chamando o construtor default do objeto  , se informar parametros vc chama o construtor que temha aqueles parametros 
+        // exemplo de como definir atributos pelo construtor 
+        System.out.println("Criando um Objeto CLiente usando o construtor com parâmetros");
+//        double aleatorio = Math.random();
+//        if (aleatorio > 0.5)
+//            especial = true;
+        // this.renda = renda; troca pela linha abaixo pois se chamar o contrutor e passar valor negativo ele criar
+        // então neste caso eu tenho que chamar o setter da renda aqui no construtor 
+        setRenda(renda);
+        this.sexo = sexo; 
+
     }
 
     public double getRenda(){
