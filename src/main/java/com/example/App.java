@@ -12,7 +12,6 @@ public class App {
         new App();
     }
 
-    // teste 
     public App(){
         try(var conn = getConnection()){
             carregarDriverJDBC();
