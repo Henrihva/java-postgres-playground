@@ -18,6 +18,7 @@ public class AppClasses {
         System.out.println("Renda: " + cliente.getRenda());
         System.out.println("Sexo : " + cliente.getSexo());
         System.out.println("Ano .: " + cliente.getAnoNascimento());
+        System.err.println("Especial: " + cliente.isEspecial());
 
         System.out.println("-------------");
 
@@ -29,6 +30,7 @@ public class AppClasses {
         System.out.println("Renda: " + cliente2.getRenda());
         System.out.println("Sexo : " + cliente2.getSexo());
         System.out.println("Ano .: " + cliente2.getAnoNascimento());
+        System.err.println("Especial: " + cliente2.isEspecial());
 
     }
 }

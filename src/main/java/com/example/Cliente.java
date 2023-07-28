@@ -10,10 +10,27 @@ public class Cliente{
     private double renda; 
     private char sexo;
     private int anoNascimento;
+    private boolean especial = false; 
 
+    public Cliente(){
+        // exemplo de como definir atributos pelo construtor 
+        System.out.println("Criando um Objeto CLiente");
+        double aleatorio = Math.random();
+        if (aleatorio > 0.5)
+            especial = true;
+    }
 
     public double getRenda(){
         return renda;
+    }
+
+    // metodo get para um boolean é =is e nao get ....
+    public boolean isEspecial() {
+        return especial;
+    }
+
+    public void setEspecial(boolean especial) {
+        this.especial = especial;
     }
 
     public void setRenda(double renda){
