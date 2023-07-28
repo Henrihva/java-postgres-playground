@@ -1,6 +1,7 @@
 package com.example;
 
 public class Cliente{
+    // incluir o public  na calss Cliente
     // Nessa etapa foi movida a classe para "fora" da classe main  --- siga os passos na IDE VSCODE
     //  Selecione a classe Cliente e botão direiot do maouse - escolha opção Refector -- depois MOVE ... e new file 
     // Obs. O nome do arquivo tem que ser o mesmo da classe 
