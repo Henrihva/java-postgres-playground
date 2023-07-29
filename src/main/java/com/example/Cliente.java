@@ -7,13 +7,13 @@ public class Cliente{
     // Obs. O nome do arquivo tem que ser o mesmo da classe 
 
     // somente a classe pode alterar o atributo  = private
+    private String nome ;
     private double renda; 
     private char sexo;
     private int anoNascimento;
     private boolean especial; //  = false;  por feault todo boolean é false 
 
     // public void Cliente() -->> definido desta forma não é um construtor não pode ter void ("retorno")
-
     public Cliente(){
         // exemplo de como definir atributos pelo construtor 
         System.out.println("Criando um Objeto CLiente usando o construtor sem parâmetros");
@@ -34,6 +34,15 @@ public class Cliente{
         setRenda(renda);
         this.sexo = sexo; 
 
+    }
+
+  
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public double getRenda(){
