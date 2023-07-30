@@ -12,7 +12,7 @@ public class AppClasses {
         cliente.setRenda(-10000);
         cliente.setSexo('M');
         cliente.setAnoNascimento(1980);
-        cliente.setNome("Henri Alves");
+        cliente.setNome("     Henri Alves      ");
         cliente.setCpf("99999999999");
 
         System.out.println("Renda: " + cliente.getRenda());
@@ -30,9 +30,10 @@ public class AppClasses {
 //        cliente2.setAnoNascimento(1970);
         Cliente cliente2 = new Cliente(-2000, 'F');
         cliente2.setAnoNascimento(1960);
-        cliente2.setNome("Zeila Alves");
-        // cliente2.setCpf("99999999999"); //assim o compilador usa a mesma variavel de memoria 
-        cliente2.setCpf(new String ("99999999999")); //assim o compilador NÂO usa a mesma variavel de memoria 
+        cliente2.setNome("       Zeila Alves");
+        //cliente2.setNome("");
+        cliente2.setCpf("99999999999"); //assim o compilador usa a mesma variavel de memoria 
+        //cliente2.setCpf(new String ("99999999999")); //assim o compilador NÂO usa a mesma variavel de memoria 
 
         // if (cliente.getCpf() == cliente2.getCpf()) neste caso pra uma comparação devemos usar o equal abaixo
 
@@ -47,6 +48,12 @@ public class AppClasses {
         System.out.println("Nome: " + cliente2.getNome());
         System.err.println("Especial: " + cliente2.isEspecial());
         System.out.println("CPF:" + cliente2.getCpf());
+
+        //String[] vetorNome = cliente2.getNome().split(" ");
+        var vetorNome = cliente2.getNome().split(" ");
+
+        System.out.println("Primeiro Nome: " + vetorNome[0]);
+        System.out.println("Segundo Nome: " + vetorNome[1]);
 
     }
 }

@@ -43,7 +43,15 @@ public class Cliente{
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        //this.nome = nome;
+        //this.nome = nome.toUpperCase();
+        if (nome.isEmpty()){
+            System.out.println("Nome não pode ser Vazio ");
+            nome = "Vazio";
+        }
+        this.nome = nome.toLowerCase();
+        this.nome = nome.toLowerCase().trim();            
+    
     }
 
     public double getRenda(){
