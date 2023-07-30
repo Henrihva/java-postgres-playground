@@ -13,8 +13,18 @@ public class Cliente{
     private int anoNascimento;
     private boolean especial; //  = false;  por feault todo boolean é false 
     private String cpf;
+    private String cidade;
+    
 
-    // public void Cliente() -->> definido desta forma não é um construtor não pode ter void ("retorno")
+   public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+ // public void Cliente() -->> definido desta forma não é um construtor não pode ter void ("retorno")
     public Cliente(){
         // exemplo de como definir atributos pelo construtor 
         System.out.println("Criando um Objeto CLiente usando o construtor sem parâmetros");

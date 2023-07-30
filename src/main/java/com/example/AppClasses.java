@@ -14,6 +14,7 @@ public class AppClasses {
         cliente.setAnoNascimento(1980);
         cliente.setNome("     Henri Alves      ");
         cliente.setCpf("99999999999");
+        cliente.setCidade("Uberlandia");
 
         System.out.println("Renda: " + cliente.getRenda());
         System.out.println("Sexo : " + cliente.getSexo());
@@ -34,9 +35,9 @@ public class AppClasses {
         //cliente2.setNome("");
         cliente2.setCpf("99999999999"); //assim o compilador usa a mesma variavel de memoria 
         //cliente2.setCpf(new String ("99999999999")); //assim o compilador NÂO usa a mesma variavel de memoria 
- 
-        // if (cliente.getCpf() == cliente2.getCpf()) neste caso pra uma comparação devemos usar o equal abaixo
+        cliente2.setCidade("UBERLANDIA");
 
+        // if (cliente.getCpf() == cliente2.getCpf()) neste caso pra uma comparação devemos usar o equal abaixo
         if (cliente.getCpf().equals(cliente2.getCpf()))
             System.out.println("Cliente 1 e CLiente 2 tem o mesmo CPF");
         else
@@ -54,6 +55,13 @@ public class AppClasses {
 
         System.out.println("Primeiro Nome: " + vetorNome[0]);
         System.out.println("Segundo Nome: " + vetorNome[1]);
+
+        System.out.println("3º Caracter do primeiro Nome :" + cliente2.getNome().charAt(2));
+
+        if (cliente.getCidade().equalsIgnoreCase(cliente2.getCidade()))
+            System.out.println("Clientes moram na mesma cidade");
+        else System.out.println("Clientes não moram na mesma ");
+
         //
     }
 }
