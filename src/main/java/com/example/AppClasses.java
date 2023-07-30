@@ -34,7 +34,7 @@ public class AppClasses {
         //cliente2.setNome("");
         cliente2.setCpf("99999999999"); //assim o compilador usa a mesma variavel de memoria 
         //cliente2.setCpf(new String ("99999999999")); //assim o compilador NÂO usa a mesma variavel de memoria 
-
+ 
         // if (cliente.getCpf() == cliente2.getCpf()) neste caso pra uma comparação devemos usar o equal abaixo
 
         if (cliente.getCpf().equals(cliente2.getCpf()))
