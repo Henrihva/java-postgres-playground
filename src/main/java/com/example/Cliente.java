@@ -65,7 +65,7 @@ public class Cliente{
 
     public void setEspecial(boolean especial) {
         this.especial = especial;
-    }
+    } 
 
     public void setRenda(double renda){
         if(renda >= 0)
