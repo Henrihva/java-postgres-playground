@@ -12,6 +12,7 @@ public class Cliente{
     private char sexo;
     private int anoNascimento;
     private boolean especial; //  = false;  por feault todo boolean é false 
+    private String cpf;
 
     // public void Cliente() -->> definido desta forma não é um construtor não pode ter void ("retorno")
     public Cliente(){
@@ -85,5 +86,13 @@ public class Cliente{
     public void setAnoNascimento(int anoNascimento) {
         this.anoNascimento = anoNascimento;
     }
+     
 
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 }
