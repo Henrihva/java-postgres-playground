@@ -63,5 +63,17 @@ public class AppOperadoresLogicos {
         // dentro de um metodo statica vc não consegue chamar um metodo que não seja static
 
         new AppOperadoresLogicos();
+
+        // precedencia em operadores aritimeticos 
+        // essa expressão da resultado 2 
+        // x++ * y/x
+        // 1 * 4/2       -> 1a etapa 
+        // 1 * 2  = 2    - final
+
+        // agora invertendo o sinal ++
+        // ++x * y/x
+        // 2 * 4/2
+        // * * 2 = 4
+        //
     }
 }
