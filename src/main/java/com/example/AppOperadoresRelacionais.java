@@ -34,4 +34,11 @@ public class AppOperadoresRelacionais {
             }
             else System.out.println("0s clientes têm a mesma idade");
     }
+
+    // Operadores Lógicos 
+    //Negação: não (not)    !
+    //Conjunção: e (and)    &&
+    //Disjunção: ou (or)    ||
+
+
 }
