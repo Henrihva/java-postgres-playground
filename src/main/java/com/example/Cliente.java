@@ -113,4 +113,9 @@ public class Cliente{
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+    // metdo criado para listar uma lista 
+    public String toString(){
+       return "Cliente: " + nome + " Cidade: " + cidade ;
+    }
 }
