@@ -4,28 +4,50 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class AppBdClean02 {
+public class AppBdCrud {
     // parametros drive:banco://endereço/nome do banco, usuario , senha 
     private static final String PASSWORD = "";
     private static final String USERNAME = "gitpod";
     private static final String JDBC_URL = "jdbc:postgresql://localhost/postgres";
     public static void main(String[] args) {
-        new AppBdClean02();
+        new AppBdCrud();
     }
 
     // criando um construtor pois tirou o static dos metodos
-    public AppBdClean02(){
+    public AppBdCrud(){
         try (var conn = getConnection()){
-             carregarDriverJDBC(); 
-            
+            carregarDriverJDBC();
             // listarEstados(conn); 
             // localizarEstado(conn, "TO");
-            // listarDadosTabela(conn, "cliente");
+            //listarDadosTabela(conn, "produto");
+            var marca = new Marca();
+            marca.setId(1L);
+            
+            var produto = new Produto();
+            produto.setMarca(marca);
+            produto.setNome("Produto Novo no CRUD");
+            produto.setValor(101.56);
+            inserirProduto(conn, produto); 
             listarDadosTabela(conn, "produto");
         } catch (SQLException e) {
                 System.err.println("Não foi possível conectar ao banco de dados:  " + e.getMessage());
         }
     }
+
+    private void inserirProduto(Connection conn, Produto produto) {
+         // tem de olhar o nome la no banco tem de ser igual 
+        var sql = "insert into produto (nome, marca_id, valor) values (?, ?, ?)" ;
+        try {var statement = conn.prepareStatement(sql);
+            statement.setString(1, produto.getNome());
+            statement.setLong(2, produto.getMarca().getId());
+            statement.setDouble(3, produto.getValor());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Erro na execução da consulta " + e.getMessage());
+        }
+
+    }
+
 
     private void listarDadosTabela(Connection conn, String tabela) {
         // neste caso o usuario não vai digitar o nome da tabela = variavel 
