@@ -21,14 +21,16 @@ public class AppBdCrud {
             // localizarEstado(conn, "TO");
             //listarDadosTabela(conn, "produto");
             var marca = new Marca();
-            marca.setId(1L);
+            marca.setId(2L);
             
             var produto = new Produto();
+            produto.setId(202L);
             produto.setMarca(marca);
-            produto.setNome("Produto Novo no CRUD 2");
-            produto.setValor(131.65);
+            produto.setNome("Produto Novo no CRUD Java");
+            produto.setValor(181.85);
             // inserirProduto(conn, produto); // Inserir produto no banco de dados 
             excluirProduto(conn,205L);
+            alterarProduto(conn, produto);
 
             listarDadosTabela(conn, "produto");
         } catch (SQLException e) {
@@ -63,6 +65,23 @@ public class AppBdCrud {
         }
 
     }
+
+
+    private void alterarProduto(Connection conn, Produto produto) {
+        // tem de olhar o nome la no banco tem de ser igual 
+       var sql = "update produto set nome = ?, marca_id = ? , valor = ?  where id = ?" ;
+       try {var statement = conn.prepareStatement(sql);
+           statement.setString(1, produto.getNome());
+           statement.setLong(2, produto.getMarca().getId());
+           statement.setDouble(3, produto.getValor());
+           statement.setLong(4, produto.getId());
+           statement.executeUpdate();
+       } catch (SQLException e) {
+           System.err.println("Erro na alteração ddo produto " + e.getMessage());
+       }
+
+   }
+
 
 
     private void listarDadosTabela(Connection conn, String tabela) {
