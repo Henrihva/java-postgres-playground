@@ -25,13 +25,29 @@ public class AppBdCrud {
             
             var produto = new Produto();
             produto.setMarca(marca);
-            produto.setNome("Produto Novo no CRUD");
-            produto.setValor(101.56);
-            inserirProduto(conn, produto); 
+            produto.setNome("Produto Novo no CRUD 2");
+            produto.setValor(131.65);
+            // inserirProduto(conn, produto); // Inserir produto no banco de dados 
+            excluirProduto(conn,205L);
+
             listarDadosTabela(conn, "produto");
         } catch (SQLException e) {
                 System.err.println("Não foi possível conectar ao banco de dados:  " + e.getMessage());
         }
+    }
+
+    private void excluirProduto(Connection conn, long id) {
+        var sql = "delete from produto where id = ?";
+        try {
+            var statement = conn.prepareStatement(sql);
+            statement.setLong(1, id);
+            if (statement.executeUpdate() == 1)
+                System.err.println("Produto excluido com sucesso! Codigo: " + id);
+            else System.err.println("Produto não foi localizado Codigo: " + id);
+        } catch (SQLException e) {
+            System.err.println("Erro na exclusão do produto " + e.getMessage());
+        }
+        
     }
 
     private void inserirProduto(Connection conn, Produto produto) {
@@ -78,34 +94,34 @@ public class AppBdCrud {
 
     }
 
-    private void localizarEstado(Connection conn, String uf) {
-        try{
-            var sql = "select * from estado where uf = ?";
-            var statement = conn.prepareStatement(sql);
-            System.out.println(sql);
-            statement.setString(1, uf);
-            var result = statement.executeQuery();
-            if (result.next()){
-                System.out.printf("Id: %d Nome: %s UF: %s \n ", result.getInt("id"), result.getString("nome"), result.getString("uf"));
-            } 
-        } catch (SQLException e) {
-            System.err.println("Não foi possível executar a consulta no banco de dados:  " + e.getMessage());
-        }
-    }
+    // private void localizarEstado(Connection conn, String uf) {
+    //     try{
+    //         var sql = "select * from estado where uf = ?";
+    //         var statement = conn.prepareStatement(sql);
+    //         System.out.println(sql);
+    //         statement.setString(1, uf);
+    //         var result = statement.executeQuery();
+    //         if (result.next()){
+    //             System.out.printf("Id: %d Nome: %s UF: %s \n ", result.getInt("id"), result.getString("nome"), result.getString("uf"));
+    //         } 
+    //     } catch (SQLException e) {
+    //         System.err.println("Não foi possível executar a consulta no banco de dados:  " + e.getMessage());
+    //     }
+    // }
 
-    private void listarEstados(Connection conn) {
-        try {
-            System.out.println("COnexão com o banco realizada com sucesso!");
+    // private void listarEstados(Connection conn) {
+    //     try {
+    //         System.out.println("COnexão com o banco realizada com sucesso!");
             
-            var statement = conn.createStatement();
-            var result = statement.executeQuery(" select * from estado");
-            while(result.next()){
-                System.out.printf("Id: %d Nome: %s UF: %s \n ", result.getInt("id"), result.getString("nome"), result.getString("uf"));
-            }
-        } catch (SQLException e) {
-            System.err.println("Não foi possível executar a consulta no banco de dados:  " + e.getMessage());
-        }
-    }
+    //         var statement = conn.createStatement();
+    //         var result = statement.executeQuery(" select * from estado");
+    //         while(result.next()){
+    //             System.out.printf("Id: %d Nome: %s UF: %s \n ", result.getInt("id"), result.getString("nome"), result.getString("uf"));
+    //         }
+    //     } catch (SQLException e) {
+    //         System.err.println("Não foi possível executar a consulta no banco de dados:  " + e.getMessage());
+    //     }
+    // }
 
     private Connection getConnection () throws SQLException{
         return DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
